@@ -48,14 +48,17 @@ export const Contact = () => {
 
     setSubmitting(true);
     const payload = {
-      ...parsed.data,
-      phone: parsed.data.phone || null,
-      subject: parsed.data.subject || null,
-      venue: parsed.data.venue || null,
-      event_date: parsed.data.event_date || null,
+      inquiry_type: parsed.data.inquiry_type,
+      name: parsed.data.name,
+      email: parsed.data.email,
+      message: parsed.data.message,
+      phone: parsed.data.phone || undefined,
+      subject: parsed.data.subject || undefined,
+      venue: parsed.data.venue || undefined,
+      event_date: parsed.data.event_date || undefined,
     };
 
-    const { error } = await supabase.from("inquiries").insert(payload);
+    const { error } = await supabase.from("inquiries").insert([payload]);
     setSubmitting(false);
 
     if (error) {
