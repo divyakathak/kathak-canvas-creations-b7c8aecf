@@ -63,7 +63,7 @@ export const ContentEditor = () => {
       title: current.title,
       subtitle: current.subtitle,
       body: current.body,
-      data: current.data ?? {},
+      data: (current.data ?? {}) as never,
     }]);
     setSaving(false);
     if (error) {
