@@ -58,13 +58,13 @@ export const ContentEditor = () => {
 
   const save = async () => {
     setSaving(true);
-    const { error } = await supabase.from("site_content").upsert({
+    const { error } = await supabase.from("site_content").upsert([{
       id: current.id,
       title: current.title,
       subtitle: current.subtitle,
       body: current.body,
       data: current.data ?? {},
-    });
+    }]);
     setSaving(false);
     if (error) {
       toast({ title: "Save failed", description: error.message, variant: "destructive" });
