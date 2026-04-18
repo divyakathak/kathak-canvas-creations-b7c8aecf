@@ -40,7 +40,7 @@ export const Nav = () => {
       <div className="container-elegant flex items-center justify-between">
         <Link to="/" className="group flex items-center gap-3">
           <span className="font-display text-2xl tracking-wider text-cream group-hover:text-primary transition-colors duration-500">
-            Anaya<span className="text-primary"> · </span>Rao
+            Divya<span className="text-primary"> · </span>Bhardwaj
           </span>
         </Link>
 

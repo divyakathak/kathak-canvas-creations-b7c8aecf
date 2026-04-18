@@ -26,7 +26,7 @@ export const Hero = () => {
       .then(({ data }) => data && setContent(data as HeroData));
   }, []);
 
-  const title = content?.title ?? "Anaya Rao";
+  const title = content?.title ?? "Divya Bhardwaj";
   const subtitle = content?.subtitle ?? "Kathak Artist";
   const body = content?.body ?? "";
   const ctaLabel = content?.data?.cta_label ?? "Experience the Art";
@@ -38,7 +38,7 @@ export const Hero = () => {
       <motion.div className="absolute inset-0" style={{ y }}>
         <img
           src={heroImage}
-          alt="Kathak dancer mid-spin in dramatic gold light"
+          alt="Divya Bhardwaj performing Kathak on stage"
           className="h-full w-full object-cover"
           width={1920}
           height={1080}

@@ -27,7 +27,7 @@ export const Footer = () => {
       <div className="container-elegant grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
         <div>
           <p className="font-display text-3xl text-cream tracking-wider">
-            {c?.title ?? "Anaya Rao"}
+            {c?.title ?? "Divya Bhardwaj"}
           </p>
           <p className="eyebrow text-primary mt-2">{c?.subtitle ?? "Kathak Artist"}</p>
           <p className="text-cream/60 mt-6 max-w-sm">{c?.body ?? ""}</p>
@@ -78,7 +78,7 @@ export const Footer = () => {
 
       <div className="container-elegant border-t border-border/40 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
         <p className="eyebrow text-cream/40 text-[10px]">
-          © {new Date().getFullYear()} {c?.title ?? "Anaya Rao"} · All Rights Reserved
+          © {new Date().getFullYear()} {c?.title ?? "Divya Bhardwaj"} · All Rights Reserved
         </p>
         <Link to="/admin" className="eyebrow text-cream/30 hover:text-primary text-[10px]">
           Admin
