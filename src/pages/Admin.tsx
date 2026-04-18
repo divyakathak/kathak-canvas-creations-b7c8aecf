@@ -1,20 +1,22 @@
 import { useEffect, useState } from "react";
 import { Navigate, Link } from "react-router-dom";
-import { LogOut, FileText, Image as ImageIcon, Calendar, Quote, Mail } from "lucide-react";
+import { LogOut, FileText, Image as ImageIcon, Video, Calendar, Quote, Mail } from "lucide-react";
 import { useAuth } from "@/hooks/useAuth";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ContentEditor } from "@/components/admin/ContentEditor";
 import { GalleryManager } from "@/components/admin/GalleryManager";
+import { VideosManager } from "@/components/admin/VideosManager";
 import { PerformancesManager } from "@/components/admin/PerformancesManager";
 import { TestimonialsManager } from "@/components/admin/TestimonialsManager";
 import { InquiriesViewer } from "@/components/admin/InquiriesViewer";
 
-type Tab = "content" | "gallery" | "performances" | "testimonials" | "inquiries";
+type Tab = "content" | "gallery" | "videos" | "performances" | "testimonials" | "inquiries";
 
 const TABS: { id: Tab; label: string; icon: typeof FileText }[] = [
   { id: "content", label: "Site Content", icon: FileText },
   { id: "gallery", label: "Gallery", icon: ImageIcon },
+  { id: "videos", label: "Videos", icon: Video },
   { id: "performances", label: "Performances", icon: Calendar },
   { id: "testimonials", label: "Testimonials", icon: Quote },
   { id: "inquiries", label: "Inquiries", icon: Mail },
@@ -25,7 +27,7 @@ const Admin = () => {
   const [tab, setTab] = useState<Tab>("content");
 
   useEffect(() => {
-    document.title = "Dashboard · Anaya Rao";
+    document.title = "Dashboard · Divya Bhardwaj";
   }, []);
 
   if (loading) {
@@ -55,7 +57,7 @@ const Admin = () => {
         <div className="container-elegant py-5 flex items-center justify-between">
           <Link to="/" className="flex items-baseline gap-3">
             <span className="font-display text-2xl tracking-wider">
-              Anaya<span className="text-primary"> · </span>Rao
+              Divya<span className="text-primary"> · </span>Bhardwaj
             </span>
             <span className="eyebrow text-cream/40 text-[10px]">Dashboard</span>
           </Link>
@@ -100,6 +102,7 @@ const Admin = () => {
         <main className="col-span-12 lg:col-span-9">
           {tab === "content" && <ContentEditor />}
           {tab === "gallery" && <GalleryManager />}
+          {tab === "videos" && <VideosManager />}
           {tab === "performances" && <PerformancesManager />}
           {tab === "testimonials" && <TestimonialsManager />}
           {tab === "inquiries" && <InquiriesViewer />}
