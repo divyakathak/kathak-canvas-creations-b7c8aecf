@@ -89,17 +89,21 @@ export const Contact = () => {
             Bookings & Inquiries
           </h2>
           <p className="text-cream/70 text-lg leading-relaxed text-pretty mb-10">
-            For performances, workshops, festivals, and press — please use the form. Anaya's team responds personally within two business days.
+            For performances, workshops, festivals, and press — please use the form. Divya responds personally within two business days.
           </p>
 
           <div className="space-y-6 border-l border-primary/30 pl-6">
             <div>
               <p className="eyebrow text-cream/50 mb-1">Email</p>
-              <p className="font-display text-xl text-primary">contact@anayarao.com</p>
+              <p className="font-display text-xl text-primary">Divyabharadwaj020@gmail.com</p>
+            </div>
+            <div>
+              <p className="eyebrow text-cream/50 mb-1">Phone</p>
+              <p className="font-display text-xl text-cream">+91 98704 42949</p>
             </div>
             <div>
               <p className="eyebrow text-cream/50 mb-1">Studio</p>
-              <p className="font-display text-xl text-cream">New Delhi, India</p>
+              <p className="font-display text-xl text-cream">Narela, New Delhi, India</p>
             </div>
           </div>
         </motion.div>
@@ -137,7 +141,7 @@ export const Contact = () => {
             >
               <p className="font-display text-3xl italic text-primary mb-3">Thank you.</p>
               <p className="text-cream/70">
-                Your message has reached us. Anaya's team will respond shortly.
+                Your message has reached us. Divya will respond shortly.
               </p>
               <Button variant="ghost" onClick={() => setDone(false)} className="mt-6 text-primary">
                 Send another

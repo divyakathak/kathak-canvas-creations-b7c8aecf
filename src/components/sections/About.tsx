@@ -39,7 +39,7 @@ export const About = () => {
           <div className="relative aspect-[4/5] overflow-hidden">
             <img
               src={aboutImage}
-              alt="Portrait of Anaya Rao"
+              alt="Portrait of Divya Bhardwaj"
               loading="lazy"
               width={1024}
               height={1280}
