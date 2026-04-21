@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 import { Nav } from "@/components/sections/Nav";
 import { Hero } from "@/components/sections/Hero";
 import { About } from "@/components/sections/About";
@@ -7,6 +8,11 @@ import { Performances } from "@/components/sections/Performances";
 import { Testimonials } from "@/components/sections/Testimonials";
 import { Contact } from "@/components/sections/Contact";
 import { Footer } from "@/components/sections/Footer";
+import { Loader } from "@/components/sections/Loader";
+import { ScrollProgress } from "@/components/sections/ScrollProgress";
+import { CursorGlow } from "@/components/sections/CursorGlow";
+import { FloatingActions } from "@/components/sections/FloatingActions";
+import { MusicToggle } from "@/components/sections/MusicToggle";
 
 const Index = () => {
   // Basic SEO
@@ -34,16 +40,25 @@ const Index = () => {
 
   return (
     <>
+      <Loader />
+      <ScrollProgress />
+      <CursorGlow />
       <Nav />
-      <main>
+      <motion.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+      >
         <Hero />
         <About />
         <Gallery />
         <Performances />
         <Testimonials />
         <Contact />
-      </main>
+      </motion.main>
       <Footer />
+      <FloatingActions />
+      <MusicToggle />
     </>
   );
 };
