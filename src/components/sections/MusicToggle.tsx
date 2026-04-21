@@ -3,12 +3,12 @@ import { Music2, VolumeX, Volume2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Slider } from "@/components/ui/slider";
 
-// Royalty-free Indian classical ambiences.
-// Section-aware: hero = soft ambient flute, gallery = rhythmic sitar, contact = calm spiritual.
+// Working Indian classical instrumental tracks (archive.org, public domain / CC).
+// Section-aware: hero = soft ambient sitar, gallery = live raga, contact = calm spiritual.
 const TRACKS = {
-  hero: "https://cdn.pixabay.com/download/audio/2022/10/18/audio_3650d51e29.mp3?filename=indian-flute-music-22978.mp3",
-  gallery: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_8e54f63e7e.mp3?filename=indian-sitar-music-110624.mp3",
-  contact: "https://cdn.pixabay.com/download/audio/2023/06/08/audio_ec40a7b8a4.mp3?filename=meditation-relax-amp-stress-relief-152714.mp3",
+  hero: "https://ia600602.us.archive.org/25/items/ravi-shankar-sitar-1972-easd-1502/%5BEASD%201502%5D%20Side%201%201644.mp3",
+  gallery: "https://ia600509.us.archive.org/19/items/1MISHRASRAGBAGESHREELIVENETLOFTJuly92006Set1/1%20-%20MISHRAS%20-%20RAG%20BAGESHREE%20-%20LIVE%20NET%20LOFT%20-%20July%209%2C%202006%20-%20Set%201.mp3",
+  contact: "https://ia600602.us.archive.org/25/items/ravi-shankar-sitar-1972-easd-1502/%5BEASD%201502%5D%20Side%202%201644.mp3",
 } as const;
 
 type Section = keyof typeof TRACKS;
@@ -191,7 +191,38 @@ export const MusicToggle = () => {
   );
 
   return (
-    <div className="fixed top-5 right-5 z-[70] flex items-start gap-2">
+    <div
+      className="fixed bottom-6 right-6 z-[70] flex flex-row-reverse items-center gap-2"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
+      <button
+        onClick={toggle}
+        onFocus={() => setOpen(true)}
+        onBlur={() => setOpen(false)}
+        aria-label={playing ? "Mute background music" : "Play background music"}
+        className="h-14 w-14 rounded-full bg-noir/80 backdrop-blur-xl border border-primary/40 text-primary hover:border-primary shadow-gold transition-all flex items-center justify-center relative group"
+      >
+        {playing ? (
+          <motion.div
+            animate={{ scale: [1, 1.15, 1] }}
+            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
+            className="flex items-center justify-center"
+          >
+            <Music2 size={20} />
+          </motion.div>
+        ) : (
+          <VolumeX size={20} className="opacity-80 group-hover:opacity-100" />
+        )}
+        <span className="absolute inset-0 rounded-full ring-1 ring-primary/20 group-hover:ring-primary/60 transition-all" />
+        {playing && (
+          <>
+            <span className="absolute -inset-1 rounded-full border border-primary/30 animate-ping pointer-events-none" />
+            <span className="absolute -inset-2 rounded-full bg-primary/10 blur-xl pointer-events-none" />
+          </>
+        )}
+      </button>
+
       <AnimatePresence>
         {open && (
           <motion.div
@@ -199,7 +230,7 @@ export const MusicToggle = () => {
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 20, scale: 0.95 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-noir/80 backdrop-blur-xl border border-primary/30 rounded-full pl-5 pr-4 h-12 flex items-center gap-3 shadow-gold"
+            className="bg-noir/80 backdrop-blur-xl border border-primary/30 rounded-full pl-5 pr-4 h-12 hidden sm:flex items-center gap-3 shadow-gold"
           >
             <Volume2 size={14} className="text-primary/80" />
             <Slider
@@ -210,38 +241,12 @@ export const MusicToggle = () => {
               className="w-28"
               aria-label="Music volume"
             />
-            <span className="eyebrow text-[9px] text-cream/60 hidden sm:block whitespace-nowrap">
+            <span className="eyebrow text-[9px] text-cream/60 whitespace-nowrap">
               {sectionLabel}
             </span>
           </motion.div>
         )}
       </AnimatePresence>
-
-      <button
-        onClick={toggle}
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
-        onFocus={() => setOpen(true)}
-        onBlur={() => setOpen(false)}
-        aria-label={playing ? "Mute background music" : "Play background music"}
-        className="h-12 w-12 rounded-full bg-noir/70 backdrop-blur-xl border border-primary/30 text-primary hover:border-primary hover:shadow-gold transition-all flex items-center justify-center relative group"
-      >
-        {playing ? (
-          <motion.div
-            animate={{ scale: [1, 1.15, 1] }}
-            transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
-            className="flex items-center justify-center"
-          >
-            <Music2 size={18} />
-          </motion.div>
-        ) : (
-          <VolumeX size={18} className="opacity-70 group-hover:opacity-100" />
-        )}
-        <span className="absolute inset-0 rounded-full ring-1 ring-primary/0 group-hover:ring-primary/40 transition-all" />
-        {playing && (
-          <span className="absolute -inset-1 rounded-full border border-primary/20 animate-ping pointer-events-none" />
-        )}
-      </button>
     </div>
   );
 };

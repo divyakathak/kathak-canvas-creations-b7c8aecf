@@ -29,7 +29,7 @@ export const FloatingActions = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 30 }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="fixed bottom-6 right-6 z-[70] flex flex-col items-end gap-3"
+          className="fixed bottom-6 left-6 z-[70] flex flex-col items-start gap-3"
         >
           <AnimatePresence>
             {open && (
