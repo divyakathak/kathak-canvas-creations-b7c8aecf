@@ -198,12 +198,10 @@ export const MusicToggle = () => {
     >
       <button
         onClick={toggle}
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
         onFocus={() => setOpen(true)}
         onBlur={() => setOpen(false)}
         aria-label={playing ? "Mute background music" : "Play background music"}
-        className="h-12 w-12 rounded-full bg-noir/70 backdrop-blur-xl border border-primary/30 text-primary hover:border-primary hover:shadow-gold transition-all flex items-center justify-center relative group"
+        className="h-14 w-14 rounded-full bg-noir/80 backdrop-blur-xl border border-primary/40 text-primary hover:border-primary shadow-gold transition-all flex items-center justify-center relative group"
       >
         {playing ? (
           <motion.div
@@ -211,16 +209,44 @@ export const MusicToggle = () => {
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
             className="flex items-center justify-center"
           >
-            <Music2 size={18} />
+            <Music2 size={20} />
           </motion.div>
         ) : (
-          <VolumeX size={18} className="opacity-70 group-hover:opacity-100" />
+          <VolumeX size={20} className="opacity-80 group-hover:opacity-100" />
         )}
-        <span className="absolute inset-0 rounded-full ring-1 ring-primary/0 group-hover:ring-primary/40 transition-all" />
+        <span className="absolute inset-0 rounded-full ring-1 ring-primary/20 group-hover:ring-primary/60 transition-all" />
         {playing && (
-          <span className="absolute -inset-1 rounded-full border border-primary/20 animate-ping pointer-events-none" />
+          <>
+            <span className="absolute -inset-1 rounded-full border border-primary/30 animate-ping pointer-events-none" />
+            <span className="absolute -inset-2 rounded-full bg-primary/10 blur-xl pointer-events-none" />
+          </>
         )}
       </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, x: 20, scale: 0.95 }}
+            animate={{ opacity: 1, x: 0, scale: 1 }}
+            exit={{ opacity: 0, x: 20, scale: 0.95 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="bg-noir/80 backdrop-blur-xl border border-primary/30 rounded-full pl-5 pr-4 h-12 hidden sm:flex items-center gap-3 shadow-gold"
+          >
+            <Volume2 size={14} className="text-primary/80" />
+            <Slider
+              value={[Math.round(volume * 100)]}
+              max={100}
+              step={1}
+              onValueChange={(v) => setVolume((v[0] ?? 0) / 100)}
+              className="w-28"
+              aria-label="Music volume"
+            />
+            <span className="eyebrow text-[9px] text-cream/60 whitespace-nowrap">
+              {sectionLabel}
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
