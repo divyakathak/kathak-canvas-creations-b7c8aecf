@@ -191,32 +191,11 @@ export const MusicToggle = () => {
   );
 
   return (
-    <div className="fixed top-5 right-5 z-[70] flex items-start gap-2">
-      <AnimatePresence>
-        {open && (
-          <motion.div
-            initial={{ opacity: 0, x: 20, scale: 0.95 }}
-            animate={{ opacity: 1, x: 0, scale: 1 }}
-            exit={{ opacity: 0, x: 20, scale: 0.95 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="bg-noir/80 backdrop-blur-xl border border-primary/30 rounded-full pl-5 pr-4 h-12 flex items-center gap-3 shadow-gold"
-          >
-            <Volume2 size={14} className="text-primary/80" />
-            <Slider
-              value={[Math.round(volume * 100)]}
-              max={100}
-              step={1}
-              onValueChange={(v) => setVolume((v[0] ?? 0) / 100)}
-              className="w-28"
-              aria-label="Music volume"
-            />
-            <span className="eyebrow text-[9px] text-cream/60 hidden sm:block whitespace-nowrap">
-              {sectionLabel}
-            </span>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
+    <div
+      className="fixed bottom-6 right-6 z-[70] flex flex-row-reverse items-center gap-2"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+    >
       <button
         onClick={toggle}
         onMouseEnter={() => setOpen(true)}
