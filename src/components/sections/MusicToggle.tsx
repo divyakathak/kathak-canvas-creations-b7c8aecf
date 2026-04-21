@@ -3,12 +3,12 @@ import { Music2, VolumeX, Volume2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Slider } from "@/components/ui/slider";
 
-// Royalty-free Indian classical ambiences.
-// Section-aware: hero = soft ambient flute, gallery = rhythmic sitar, contact = calm spiritual.
+// Working Indian classical instrumental tracks (archive.org, public domain / CC).
+// Section-aware: hero = soft ambient sitar, gallery = live raga, contact = calm spiritual.
 const TRACKS = {
-  hero: "https://cdn.pixabay.com/download/audio/2022/10/18/audio_3650d51e29.mp3?filename=indian-flute-music-22978.mp3",
-  gallery: "https://cdn.pixabay.com/download/audio/2022/03/15/audio_8e54f63e7e.mp3?filename=indian-sitar-music-110624.mp3",
-  contact: "https://cdn.pixabay.com/download/audio/2023/06/08/audio_ec40a7b8a4.mp3?filename=meditation-relax-amp-stress-relief-152714.mp3",
+  hero: "https://ia600602.us.archive.org/25/items/ravi-shankar-sitar-1972-easd-1502/%5BEASD%201502%5D%20Side%201%201644.mp3",
+  gallery: "https://ia600509.us.archive.org/19/items/1MISHRASRAGBAGESHREELIVENETLOFTJuly92006Set1/1%20-%20MISHRAS%20-%20RAG%20BAGESHREE%20-%20LIVE%20NET%20LOFT%20-%20July%209%2C%202006%20-%20Set%201.mp3",
+  contact: "https://ia600602.us.archive.org/25/items/ravi-shankar-sitar-1972-easd-1502/%5BEASD%201502%5D%20Side%202%201644.mp3",
 } as const;
 
 type Section = keyof typeof TRACKS;
