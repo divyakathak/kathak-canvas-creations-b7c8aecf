@@ -11,9 +11,9 @@ import { Footer } from "@/components/sections/Footer";
 const Index = () => {
   // Basic SEO
   useEffect(() => {
-    document.title = "Anaya Rao · Kathak Artist & Choreographer";
+    document.title = "Divya Bhardwaj | Kathak Artist & Choreographer";
     const desc =
-      "Award-winning Kathak dancer and choreographer Anaya Rao. Performances, workshops, gallery, and bookings.";
+      "Divya Bhardwaj — Kathak Artist & Choreographer. Founder of Divyakala Performing Arts. Performances, workshops, gallery & bookings.";
     let m = document.querySelector('meta[name="description"]');
     if (!m) {
       m = document.createElement("meta");

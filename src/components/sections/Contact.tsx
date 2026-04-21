@@ -95,7 +95,7 @@ export const Contact = () => {
           <div className="space-y-6 border-l border-primary/30 pl-6">
             <div>
               <p className="eyebrow text-cream/50 mb-1">Email</p>
-              <p className="font-display text-xl text-primary">Divyabharadwaj020@gmail.com</p>
+              <p className="font-display text-xl text-primary break-all">divyabhardwaj020@gmail.com</p>
             </div>
             <div>
               <p className="eyebrow text-cream/50 mb-1">Phone</p>

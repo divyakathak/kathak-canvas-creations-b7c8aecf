@@ -27,9 +27,9 @@ export const Hero = () => {
   }, []);
 
   const title = content?.title ?? "Divya Bhardwaj";
-  const subtitle = content?.subtitle ?? "Kathak Artist";
+  const subtitle = content?.subtitle ?? "Kathak Artist & Choreographer";
   const body = content?.body ?? "";
-  const ctaLabel = content?.data?.cta_label ?? "Experience the Art";
+  const ctaLabel = content?.data?.cta_label ?? "View Performances";
   const ctaLink = content?.data?.cta_link ?? "#performances";
 
   return (
@@ -101,7 +101,7 @@ export const Hero = () => {
             <a href={ctaLink}>{ctaLabel}</a>
           </Button>
           <Button asChild variant="ghost" size="lg" className="text-cream/70 hover:text-primary uppercase tracking-[0.18em] text-xs">
-            <a href="#about">About the Artist</a>
+            <a href="#contact">Book Now</a>
           </Button>
         </motion.div>
       </motion.div>
