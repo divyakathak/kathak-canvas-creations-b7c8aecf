@@ -13,6 +13,8 @@ import { ScrollProgress } from "@/components/sections/ScrollProgress";
 import { CursorGlow } from "@/components/sections/CursorGlow";
 import { FloatingActions } from "@/components/sections/FloatingActions";
 import { MusicToggle } from "@/components/sections/MusicToggle";
+import { SmoothScroll } from "@/components/sections/SmoothScroll";
+import { Scene3D } from "@/components/sections/Scene3D";
 
 const Index = () => {
   // Basic SEO
@@ -41,6 +43,7 @@ const Index = () => {
   return (
     <>
       <Loader />
+      <SmoothScroll />
       <ScrollProgress />
       <CursorGlow />
       <Nav />
@@ -50,11 +53,11 @@ const Index = () => {
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       >
         <Hero />
-        <About />
-        <Gallery />
-        <Performances />
-        <Testimonials />
-        <Contact />
+        <Scene3D variant="tilt"><About /></Scene3D>
+        <Scene3D variant="depth"><Gallery /></Scene3D>
+        <Scene3D variant="rise"><Performances /></Scene3D>
+        <Scene3D variant="flip"><Testimonials /></Scene3D>
+        <Scene3D variant="tilt"><Contact /></Scene3D>
       </motion.main>
       <Footer />
       <FloatingActions />
